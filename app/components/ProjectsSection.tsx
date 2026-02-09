@@ -14,12 +14,12 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
         </div>
         
       </div>
-      <div className="grid gap-6 mt-10 md:grid-cols-3">
+      <div className="grid gap-4 sm:gap-5 mt-8 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => {
           const content = (
             <>
-              <h3 className={`${fraunces.className} text-2xl`}>{project.title}</h3>
-              <p className="text-sm text-[color:var(--muted)]">{project.description}</p>
+              <h3 className={`${fraunces.className} text-base sm:text-lg`}>{project.title}</h3>
+              <p className="text-base text-[color:var(--muted)]">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
                   <span
@@ -39,12 +39,12 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
               href={project.href}
               target="_blank"
               rel="noreferrer"
-              className="glass rounded-3xl p-6 space-y-4 transition-transform hover:-translate-y-1"
+              className="glass rounded-2xl p-3 sm:p-4 space-y-2 transition-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/70"
             >
               {content}
             </a>
           ) : (
-            <article key={project.title} className="glass rounded-3xl p-6 space-y-4">
+            <article key={project.title} className="glass rounded-2xl p-3 sm:p-4 space-y-2">
               {content}
             </article>
           );

@@ -17,14 +17,16 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
         {experiences.map((item) => (
           <div
             key={item.role}
-            className="glass rounded-3xl p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+            className="glass rounded-2xl p-3 sm:p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4"
           >
             <div className="space-y-2">
-              <div className={`${fraunces.className} text-2xl`}>{item.role}</div>
-              <div className="text-[color:var(--muted)]">{item.org}</div>
-              <p className="text-sm text-[color:var(--muted)] max-w-xl">{item.description}</p>
+              <div className={`${fraunces.className} text-base sm:text-lg`}>{item.role}</div>
+              <div className="text-base text-[color:var(--muted)]">{item.org}</div>
+              <p className="text-base text-[color:var(--muted)] max-w-xl">{item.description}</p>
             </div>
-            <div className="text-sm uppercase tracking-[0.3em] text-[color:var(--muted)]">{item.time}</div>
+            <div className="text-sm uppercase tracking-[0.25em] text-[color:var(--muted)]">
+              {item.time}
+            </div>
           </div>
         ))}
       </div>
