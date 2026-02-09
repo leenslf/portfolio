@@ -1,43 +1,28 @@
-import Image from "next/image";
+import BackgroundDecor from "./components/BackgroundDecor";
+import ContactSection from "./components/ContactSection";
+import ExperienceSection from "./components/ExperienceSection";
+import HeroSection from "./components/HeroSection";
+import Navbar from "./components/Navbar";
+import ProjectsSection from "./components/ProjectsSection";
+import { projects, experiences, links } from "./data/portfolio";
+import { sora } from "./fonts";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-50 px-6 py-24 text-zinc-900 dark:bg-black dark:text-zinc-100">
-      <section className="mx-auto max-w-3xl space-y-10">
-        <header className="space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">
-            Leen Said
-          </h1>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400">
-            Computer Engineering student · Robotics & Computer Vision
-          </p>
-        </header>
+    <div className={`${sora.className} min-h-screen relative overflow-hidden text-[color:var(--foreground)]`}>
+      <BackgroundDecor />
 
-        <p className="text-lg leading-8">
-          I work on robotics, simulation, and perception systems — from
-          SLAM and visual odometry to physics-based simulation and
-          ROS-based tooling.
-        </p>
+      <div className="relative">
+        <Navbar />
 
-        <section className="space-y-4">
-          <h2 className="text-2xl font-semibold">Projects</h2>
-          <ul className="space-y-2 list-disc list-inside text-zinc-700 dark:text-zinc-300">
-            <li>Duckiebot re-engineering (ROS, VIO, SLAM)</li>
-            <li>Physics-based DEM simulation with Project Chrono</li>
-            <li>Qt/QML robot ground control station</li>
-          </ul>
-        </section>
+        <main className="max-w-6xl mx-auto px-6 md:px-10 py-12 md:py-20">
+          <HeroSection />
+          <ProjectsSection projects={projects} />
+          <ExperienceSection experiences={experiences} />
+          <ContactSection links={links} />
+        </main>
 
-        <footer className="pt-10">
-          <a
-            href="mailto:youremail@example.com"
-            className="text-lg font-medium underline underline-offset-4"
-          >
-            Contact me
-          </a>
-        </footer>
-      </section>
-    </main>
+      </div>
+    </div>
   );
 }
-
